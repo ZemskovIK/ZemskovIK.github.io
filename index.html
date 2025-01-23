@@ -10,18 +10,16 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
-    <!-- Прелоадер -->
     <div id="loading-screen">
       <div class="spinner">
         <div class="spinner-circle"></div>
         <span class="spinner-text">Backend Journey</span>
       </div>
     </div>
-    <!-- Шапка сайта -->
     <header>
       <div class="logo-container">
         <img src="images/profile.jpg" alt="Логотип" class="logo">
-        <span class="logo-text">ZemskovIK</span>
+        <a href="./index.html" class="logo-text">ZemskovIK</a>
       </div>
       <nav class="menu" id="mobileMenu">
         <ul>
@@ -45,7 +43,6 @@
     </header>
 
     <main>
-      <!-- Раздел "Обо мне" -->
       <section id="about" class="scroll-animate about-section">
         <div class="about-content">
           <h2>Backend Journey</h2>
@@ -60,7 +57,6 @@
         </div>
       </section>
 
-      <!-- Раздел "Технологии" -->
       <section id="stack" class="scroll-animate">
         <h2>Мой стек технологий</h2>
         <div class="tech-stack">
@@ -92,7 +88,6 @@
         <div id="tech-description" class="description-box"></div>
       </section>
 
-      <!-- Раздел "Блог" -->
       <section id="posts" class="scroll-animate">
         <h2>Блог</h2>
         <input
@@ -106,7 +101,6 @@
           <option value="Linux">Linux</option>
         </select>
         <p id="article-count"></p>
-        <!-- Тут будет показываться количество статей -->
         <div id="articles">
           <article data-category="Linux" class="scroll-animate">
             <h3 class="article-title">Что такое SSH?</h3>
@@ -166,16 +160,25 @@
         </div>
       </section>
 
-      <!-- Раздел "Мои проекты" -->
       <section id="projects" class="scroll-animate">
         <h2>Мои проекты</h2>
-        <p>
-          В этом разделе я рассказываю о своих текущих и будущих проектах. Скоро
-          будет больше информации!
-        </p>
+        <div class="slideshow-container">
+          <div class="project-card mySlides fade">
+            <img src="images/project1.png" alt="Скриншот проекта" class="project-image">
+            <h3>Сайт для студента-дизайнера</h3>
+            <div class="project-tech-stack">
+              <img src="images/html.svg" alt="HTML">
+              <img src="images/css.svg" alt="CSS">
+              <img src="images/javascript.svg" alt="JavaScript">
+            </div>
+            <a href="https://romanzemskov.ru" target="_blank" class="project-link">Посмотреть</a>
+          </div>
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
       </section>
+      
 
-      <!-- Раздел "Контакты" -->
       <section id="contact" class="scroll-animate">
         <h2>Контакты</h2>
         <div id="contact-widgets">
@@ -196,9 +199,10 @@
     </main>
 
     <footer>
-      <p>© 2024 Igor Zemskov | Все права защищены</p>
+      <p>© 2025 Igor Zemskov | Все права защищены</p>
     </footer>
 
     <script src="scripts/script.js"></script>
+    <script src="/scripts/slider.js"></script>
   </body>
 </html>

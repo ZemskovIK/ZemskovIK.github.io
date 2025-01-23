@@ -1,7 +1,5 @@
-// Основная загрузка страницы
 document.addEventListener('DOMContentLoaded', function () {
 
-  // Переменные
   const articles = document.querySelectorAll('#articles article');
   const articleCountText = document.querySelector('#article-count');
   const categoryFilter = document.querySelector('#category-filter');
@@ -11,17 +9,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const descriptionBox = document.getElementById('tech-description');
   const header = document.querySelector('header');
 
-  // Функционал управления статьями
-
-  // Функция отображения первых 3 статей
   function showLastThreeArticles() {
     articles.forEach((article, index) => {
       article.style.display = index < 3 ? 'block' : 'none';
     });
-    updateArticleCount(true); // Показываем общее количество статей
+    updateArticleCount(true); 
   }
 
-  // Функция обновления счётчика статей
   function updateArticleCount(showTotal = false) {
     if (showTotal) {
       articleCountText.textContent = `Всего статей: ${articles.length}`;
@@ -33,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Фильтрация статей по категориям
   categoryFilter.addEventListener('change', function () {
     const selectedCategory = categoryFilter.value.toLowerCase();
 
@@ -49,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Поиск статей
   searchInput.addEventListener('input', function () {
     const query = searchInput.value.toLowerCase();
 
@@ -67,10 +59,8 @@ document.addEventListener('DOMContentLoaded', function () {
     updateArticleCount();
   });
 
-  // Инициализация: отображение первых 3 статей
   showLastThreeArticles();
 
-  // Анимация при скролле
   setTimeout(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -86,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
     scrollElements.forEach((el) => observer.observe(el));
   }, 1500);
 
-  // Скролл-заголовок
   window.addEventListener('scroll', function () {
     if (window.scrollY > 10) {
       header.classList.add('scrolled');
@@ -95,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Подсказки для технологий
   techItems.forEach((item) => {
     item.addEventListener('mouseenter', () => {
       descriptionBox.textContent = item.dataset.description;
@@ -109,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-// Экран загрузки
 document.addEventListener("DOMContentLoaded", () => {
   const loadingScreen = document.getElementById("loading-screen");
 
@@ -123,13 +110,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 1500);
 });
 
-// Меню для мобильных устройств
 document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobileMenu');
+  const body = document.body;
 
   function toggleMenu() {
     menu.classList.toggle('active');
+    body.classList.toggle('no-scroll'); 
   }
 
   if (menuToggle) {
@@ -140,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
   menuLinks.forEach(link => {
     link.addEventListener('click', () => {
       menu.classList.remove('active');
+      body.classList.remove('no-scroll');
     });
   });
 });
